@@ -25,7 +25,7 @@ ActiveRecord::Base.class_eval do
       if column.date?
         new_value = Date.parse_localized(original_value) rescue original_value
       elsif column.time?
-        new_value = Time.parse_localized(original_value) rescue original_value
+        new_value = original_value
       end
     end
     write_attribute_without_localization(attr_name, new_value)
